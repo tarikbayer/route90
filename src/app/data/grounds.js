@@ -20,3 +20,5 @@ export default function Stadiums() {
     </div>
   );
 }
+
+const elementWithComment = <div>{/* Some comment hee */}</div>;
