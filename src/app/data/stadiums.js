@@ -1,4 +1,4 @@
-export const grounds = [
+export const stadiums = [
   {
     id: "fenerbahce-stadi",
     name: "Fenerbahçe Stadı",

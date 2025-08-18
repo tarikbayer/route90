@@ -1,12 +1,16 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { grounds } from "./data/grounds";
-import { GroundCard } from "./components/GroundCard";
+import { stadiums } from "./data/stadiums";
+import { StadiumCard } from "./components/StadiumCard";
 import { MainHeading } from "./data/Header";
-import element from "./data/search";
 import { MainNav } from "./components/MainNav";
+import { WelcomeBanner } from "./components/WelcomeBanner";
 
 export default function Home() {
+  const istanbulStadiums = stadiums.filter(
+    (stadium) => stadium.city === "İstanbul"
+  );
+
   return (
     <>
       <main>
@@ -14,17 +18,15 @@ export default function Home() {
       </main>
       <MainNav />
       <div>
-        <GroundCard
-          ground={{
-            id: "fenerbahce-stadi",
-            name: "Fenerbahçe Stadı",
-            city: "İstanbul",
-            country: "Turkey",
-            yearOpened: 1907,
-            isUEFAApproved: true,
-          }}
-        />
-        <element />
+        <WelcomeBanner />
+        <ul>
+          {istanbulStadiums.map((stadium) => (
+            <StadiumCard key={stadium.id} stadium={stadium}>
+              <em>Located in: {stadium.city}.</em>
+            </StadiumCard>
+          ))}
+        </ul>
+        <button>More info</button>
       </div>
     </>
   );
