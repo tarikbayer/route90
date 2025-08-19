@@ -10,6 +10,7 @@ export default function Home() {
   const istanbulStadiums = stadiums.filter(
     (stadium) => stadium.city === "İstanbul"
   );
+  const count = istanbulStadiums.length;
 
   return (
     <>
@@ -19,6 +20,7 @@ export default function Home() {
       <MainNav />
       <div>
         <WelcomeBanner />
+        {count > 0 && <p>{count} stadiums</p>}
         <ul>
           {istanbulStadiums.map((stadium) => (
             <StadiumCard key={stadium.id} stadium={stadium}>
